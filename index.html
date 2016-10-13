@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Market</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/jqueryUI.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:700italic,400italic,400,700&subset=latin,cyrillic'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css">
+
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+            integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!--<script src="js/data.js"></script> -->
+    <script src="js/dataJSON.js"></script>
+    <script src="js/adminJSON.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pag.js"></script>
+</head>
+<body>
+<script id="basketItemTemplate" type="text/x-handlebars-template">
+    {{#each arr}}
+    <a href="#" class="basketItem" data-basketId={{@index}}>
+        <img alt="#" src={{img}}>
+        <div class="name">{{name}}</div>
+        <div class="price">{{price}}</div>
+        <button class="del"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </a>
+    {{/each }}
+</script>
+<script id="contentItemTemplate" type="text/x-handlebars-template">
+    {{#each array}}
+    <a href="#" class="mainItem" data-productId={{@index}}>
+        <img alt="#" src={{img}}>
+        <div>
+            <ul>
+                <li name="name">{{name}}</li>
+                <li name="genre">{{genre}}</li>
+                <li name="platform">{{platform}}</li>
+                <li name="price">{{price}}</li>
+            </ul>
+            <button>Купить</button>
+        </div>
+    </a>
+    {{/each }}
+</script>
+<script id="adminItemTemplate" type="text/x-handlebars-template">
+    <div id="blockAdmin">
+        <form id="inputData">
+            <label>{{name}}<input type="text" class="adminName" name="name"></label>
+            <label>{{genre}}<input type="text" class="adminGenre" name="genre"></label>
+            <label>{{platform}}<input type="text" class="adminPlatform" name="platform"></label>
+            <label>{{price}}<input type="text" class="adminPrice" name="price"></label>
+            <label>{{img}}<input type="text" class="adminImg" name="img"></label>
+            <label>{{popular}}<input type="text" class="adminPopular" name=""></label>
+            <button id="adminAddObj" type="submit">{{add}}</button>
+            <button id="closeBlockAdmin" type="submit">{{close}}</button>
+        </form>
+    </div>
+</script>
+
+
+<script id="adminPage" type="text/x-handlebars-template">
+
+
+</script>
+
+
+<div class="wrapper">
+    <div class="header">
+
+        <div id="logIn">
+            <form id="singIn">
+                <label>Логин<input type="text"></label>
+                <label>Пароль<input type="password"></label>
+                <button class="logButton" type="submit">Вход</button>
+            </form>
+
+            <ul class="social">
+                <p>или</p>
+                <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+            </ul>
+
+            <div id="searcharea" class="searcharea">
+                <label for="search">Live search</label>
+                <input id="search" type="search" name="search" placeholder="info">
+            </div>
+
+        </div>
+        <div id="logOut">
+            Привет, <b>Валера</b>!!!
+            <button class="logButton">Выход</button>
+        </div>
+
+        <a class="basket" href="http://www.google.com">
+            Корзина
+            <div class="basketPoints">0</div>
+        </a>
+        <div class="basketDropDown ">
+            <button class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+
+            <div class="basketField">
+
+            </div>
+
+        </div>
+    </div>
+    <form class="aside" id="filter">
+        <h3>Категории</h3>
+        <div id="price">
+
+            <h4>Цена:</h4>
+            <label for="amount">Price range:
+                <input type="text" id="amount" readonly>
+                <div id="slider-range"></div>
+            </label>
+
+        </div>
+        <div data-checkId="genre" class="checkBlock">
+
+            <h4>Жанр:</h4>
+
+            <label><input type="checkbox" name="genre" value="RPG">RPG</label>
+            <label><input type="checkbox" name="genre" value="Shuter">Shooter</label>
+            <label><input type="checkbox" name="genre" value="Sport">Sport</label>
+            <label><input type="checkbox" name="genre" value="Racing">Racing</label>
+
+        </div>
+        <div data-checkId="platform" class="checkBlock">
+
+            <h4>Платформа:</h4>
+
+            <label><input type="checkbox" name="platform" value="PC">PC</label>
+            <label><input type="checkbox" name="platform" value="X-Box">X-Box</label>
+            <label><input type="checkbox" name="platform" value="PS4">PS4</label>
+
+        </div>
+        <button class="asideButton" type="submit">Ok!</button>
+        <button class="asideButton" type="reset">Reset!</button>
+    </form>
+
+    <div class="main" id="main">
+        <ul class="headContent" id="headContent">
+            <li class="sortPrice">
+                Цена
+                <button id="priceUp" name="price" data="up"><i class="fa fa-angle-double-up"
+                                                                                          aria-hidden="true"></i></button>
+                <button id="priceDown" name="price" data="down"><i class="fa fa-angle-double-down"
+                                                                   aria-hidden="true"></i></button>
+            </li>
+            <li class="sortPopular">
+                Популярность
+                <button id="popularUp" name="popular" data="up"><i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                </button>
+                <button id="popularDown" name="popular" data="down"><i class="fa fa-angle-double-down"
+                                                                       aria-hidden="true"></i></button>
+            </li>
+        </ul>
+        <div id="page"></div>
+        <div id="content"></div>
+    </div>
+    <div class="footer">
+        <p>&#169; Copyright 2016 by DREAMTEAMSPALAH</p>
+    </div>
+</div>
+
+</body>
+</html>

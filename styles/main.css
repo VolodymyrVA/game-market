@@ -1,0 +1,570 @@
+/*==== Common styles ====*/
+body {
+    font-family: "Merriweather", "Arial", sans-serif;
+    font-style: italic;
+    background: url('../img/bronya-armour-iz-igry-Crysis(oboibox.ru) (1).jpg') no-repeat center/cover;
+    background-attachment: fixed;
+
+}
+
+.wrapper {
+    width: 915px;
+    min-height: 100vmin;
+    margin: auto;
+    padding-bottom: 62px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header, .main, .aside, .footer {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+/*=== header ===*/
+
+.header {
+    background: rgba(75, 120, 187, 0.5);
+    overflow: hidden;
+    margin-bottom: 20px;
+
+}
+
+.header a {
+    font-size: 1.6rem;
+    color: #FFF;
+}
+
+.header a:hover, .header a:focus {
+    color: #13f608;
+}
+
+/* навигация */
+.nav {
+    float: left;
+    margin-right: 30px;
+}
+
+.nav li {
+    float: left;
+    margin-right: 20px;
+}
+
+/* иконка корзины */
+.basket {
+    float: right;
+}
+
+.basketPoints {
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    float: right;
+    border-radius: 50%;
+    margin-left: 10px;
+    color: #d24a43;
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 20px;
+    transition: all 0.3s ease-out;
+    /* opacity: 0; */
+}
+
+.basket:hover .basketPoints {
+    background: #13f608;
+}
+
+/* поля входа */
+#singIn {
+    float: left;
+    color: #FFF;
+    font-size: 1.4rem;
+    margin-right: 20px;
+}
+
+#singIn input {
+    margin: 0 10px;
+    width: 90px;
+    color: rgb(75, 120, 187);
+    border-radius: 5px;
+    border: none;
+    padding: 2px 5px;
+}
+
+.logButton {
+    /*border: none;*/
+    background: rgb(174, 140, 100);
+    padding: 2px 5px;
+    /*border-radius: 5px;*/
+    transition: all 0.3s ease-out;
+    border: 1px solid #253737;
+    border-radius: 6px;
+    -webkit-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    text-shadow: #333333 0 1px 0;
+    color: #FFFFFF;
+
+}
+
+.logButton:hover,
+.logButton:focus {
+    background: rgb(220, 120, 173);
+}
+
+.social {
+    float: left;
+    font-size: 1.2rem;
+    color: #fff;
+
+}
+
+.social li {
+    float: left;
+    margin-left: 10px;
+}
+
+.social a {
+    font-size: 1.8rem;
+}
+
+.social p {
+    float: left;
+    line-height: 20px;
+    margin-right: 10px;
+}
+
+#logOut {
+    float: left;
+    color: #FFF;
+    font-size: 1.4rem;
+
+}
+
+#logOut .logButton {
+    margin-left: 20px;
+}
+
+#logOut b {
+    font-size: 1.8rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* выпадающее поле корзины */
+.basketDropDown {
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    text-align: right;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.basketDropDown.dropDown {
+    display: block;
+}
+
+.basketDropDown .close {
+    margin-bottom: 20px;
+    background: none;
+    border: 0;
+    color: yellow;
+    font-size: 1.8rem;
+    transition: all 0.3s ease-out;
+}
+
+.basketDropDown .close:hover {
+    color: red;
+}
+
+.basketItem {
+    text-align: left;
+    width: 915px;
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.basketItem img {
+    height: 70px;
+    margin-right: 20px;
+}
+
+.basketItem .name {
+    flex-grow: 1;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.basketItem .price {
+    margin-right: 20px;
+}
+
+.basketItem .del {
+    height: 30px;
+    background: none;
+    border: 0;
+}
+
+.basketItem .del:hover i {
+    color: red;
+}
+
+.basketField {
+    color: yellow;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+.sumDiv {
+    margin-bottom: 20px;
+}
+
+.searcharea {
+    float: left;
+    margin-left: 30px;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+}
+
+.searcharea label {
+    margin-right: 10px;
+}
+
+.searcharea input {
+    width: 100px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    color: rgb(75, 120, 187);
+    padding: 2px 5px;
+}
+
+/*=== aside ===*/
+
+.aside {
+    width: 25%;
+    float: left;
+    color: #fff;
+    background: rgba(220, 120, 173, 0.5);
+    margin-right: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.aside h3 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.aside h4 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.aside label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    text-align: left;
+}
+
+.aside label:hover {
+    color: #ffff00;
+}
+
+.aside input {
+    margin-right: 10px;
+}
+
+.aside div {
+    margin-bottom: 10px;
+}
+
+#amount {
+    background: transparent;
+    font-size: 1.6rem;
+    border: 0;
+    font-weight: bold;
+    color: #f6931f;
+    display: inline;
+    margin-bottom: 10px;
+}
+
+.asideButton {
+    /*border: none;*/
+    background: rgb(174, 140, 100);
+    padding: 2px 5px;
+    /*border-radius: 5px;*/
+    font-size: 1.6rem;
+    transition: all 0.3s ease-out;
+    border: 1px solid #253737;
+    border-radius: 6px;
+    -webkit-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    text-shadow: #333333 0 1px 0;
+    color: #FFFFFF;
+}
+
+.asideButton:hover,
+.asideButton:focus {
+    background: rgb(220, 120, 173);
+}
+
+.asideButton[type="submit"] {
+    margin-right: 20px;
+}
+
+/*=== main ===*/
+
+.main {
+    float: right;
+    width: calc(75% - 20px);
+    margin-bottom: 20px;
+    background: rgba(142, 205, 246, 0.5);
+    padding-bottom: 0;
+}
+
+.headContent {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #FFF;
+
+}
+
+.headContent::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.headContent li {
+    float: left;
+    margin-right: 25px;
+}
+
+.headContent button {
+    background: none;
+    border: 1px solid yellow;
+    transition: all 1s ease-out;
+    border-radius: 5px;
+}
+
+.headContent button:hover {
+    color: yellow;
+    border-color: #fff;
+}
+
+.mainItem {
+    width: calc((100% - 40px) / 3);
+    display: block;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.mainItem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 5px;
+}
+
+.mainItem:nth-child(3n + 3) {
+    margin-right: 0;
+}
+
+.mainItem div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    border-radius: 5px;
+    padding: 25px 10px;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+}
+
+.mainItem:hover div {
+    opacity: 1;
+}
+
+.mainItem ul {
+    color: #ffff00;
+    width: 100%;
+
+    font-size: 1.6rem;
+    text-align: center;
+
+}
+
+.mainItem ul li {
+    margin-bottom: 15px;
+}
+
+.mainItem button {
+    margin: auto;
+    background: #00ff00;
+    border: none;
+    padding: 7px 25px;
+    font-size: 1.6rem;
+    color: #ff0000;
+    border-radius: 8px;
+    transition: all 0.3s ease-out;
+}
+
+.mainItem button:hover {
+    background: #6ac0f3;
+
+}
+
+.error {
+    font-size: 2.4rem;
+    color: yellow;
+    text-align: center;
+    padding: 20px;
+}
+
+.headContent .choise {
+    background: #02d12f;
+}
+
+#page{
+    margin: 15px;
+}
+
+#page li{
+    display: inline;
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    border: 1px solid #ffff00;
+    padding: 0;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+}
+
+#page li a {
+    padding: 7px;
+    color: #FFFFFF;
+
+}
+
+#page a:hover{
+    color: #212121;
+}
+
+.dot{
+    color: #FFFFFF;
+    font-size: 2.4rem;
+}
+
+
+    /*=== footer ===*/
+.footer {
+    clear: both;
+    background: rgba(174, 140, 100, 0.5);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    font-size: 1.6rem;
+    color: #FFF;
+    text-align: center;
+}
+
+    /*=== admin block ===*/
+#adminOption,
+#adminAddObj,
+#closeBlockAdmin{
+    width: 90px;
+    float:left;
+    border: 1px solid #253737;
+    background: rgb(174, 140, 100);
+    padding: 2px 5px;
+    border-radius: 6px;
+    -webkit-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    text-shadow: #333333 0 1px 0;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+}
+#adminOption:hover,
+#adminOption:focus {
+    background: rgb(220, 120, 173);
+}
+
+#adminAddObj:hover,
+#adminAddObj:focus {
+    background: rgb(220, 120, 173);
+}
+
+#closeBlockAdmin:hover,
+#closeBlockAdmin:focus {
+    background: rgb(220, 120, 173);
+}
+
+
+#inputData {
+    margin: 0 auto;
+    max-width: 95%;
+    padding: 30px 30px 6px 30px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    overflow: hidden;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+
+}
+#inputData input{
+    display:block;
+    font-family: 'Open Sans', sans-serif;
+    font-size:18px;
+    font-weight: 300;
+    color:#212121;
+    padding-left:20px;
+    padding-right:20px;
+    margin-bottom:20px;
+}
